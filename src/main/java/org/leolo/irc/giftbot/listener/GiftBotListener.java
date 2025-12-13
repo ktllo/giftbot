@@ -80,7 +80,7 @@ public class GiftBotListener extends ListenerAdapter {
         } else if (
                 messageTokens[0].equalsIgnoreCase("!gift")
         ) {
-            String giftType = messageTokens.length > 1 ? messageTokens[1] : configurationManager.getProperty("default_key");
+            String giftType = messageTokens.length > 1 ? messageTokens[1].toLowerCase() : configurationManager.getProperty("default_key");
             String hostmask = event.getUser().getHostmask().toLowerCase();
             log.info("{} gift requested from {}", giftType, event.getUser().getHostmask());
             if (lastRequest.containsKey(hostmask)) {
